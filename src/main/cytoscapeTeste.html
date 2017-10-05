@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+  integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" 
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>  	
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.3/cytoscape.js"></script>
+          
+</head>
+
+<body style="background-color:#f0f2f5" > 
+
+<div id="cy" style="  width: 700px;height: 700px;display: block;"></div>
+
+</body>
+
+</html>
+
+<script>
+	var cy = cytoscape({
+
+		  container: document.getElementById('cy'), // container to render in
+
+		  elements: [ // list of graph elements to start with
+		    { // node a
+		      data: { id: '1', text : 'Site -  Praia Grande'}
+		    },
+		    { // node b
+		      data: { id: '2', text : 'Site - Praia da Macumba' }
+		    },
+		    { // edge ab
+		      data: { id: 'ab', source: '1', target: '2' }
+		    }
+		  ],
+
+		  style: [ // the stylesheet for the graph
+		    {
+		      selector: 'node',
+		      style: {
+		        'background-color': 'red',
+		        'label': 'data(id)'
+		      }
+		    },
+
+		    {
+		      selector: 'edge',
+		      style: {
+		        'width': 3,
+		        'line-color': '#ccc',
+		        'target-arrow-color': '#ccc',
+		        'target-arrow-shape': 'triangle'
+		      }
+		    }
+		  ],
+
+		  layout: {
+		    name: 'grid',
+		    rows: 1
+		  }
+
+		}); 
+
+	cy.on('tap', 'node', function(evt){
+	  var node = evt.target;
+	  console.log( 'tapped ' + node.id() );
+	});
+
+
+var eles = cy.add([
+  { group: "nodes", data: { id: "n0" }, position: { x: 400, y: 400 } },
+  { group: "nodes", data: { id: "n1" }, position: { x: 500, y: 500 } },
+  { group: "nodes", data: { id: "n2" }, position: { x: 500, y: 500 } },
+  { group: "edges", data: { id: "e0", source: "n0", target: "n1" } },
+  { group: "edges", data: { id: "e0", source: "n0", target: "2" } },
+  { group: "edges", data: { id: "e1", source: "n1", target: "1" } },
+  { group: "edges", data: { id: "e2", source: "n1", target: "n2" } },
+  { group: "edges", data: { id: "e3", source: "n2", target: "2" } },
+  { group: "edges", data: { id: "e4", source: "n0", target: "2" } }
+]);
+
+
+</script>
