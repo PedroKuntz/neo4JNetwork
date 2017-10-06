@@ -1,4 +1,4 @@
-package com.mapping.network;
+package com.mapping.network.application;
 
 import org.neo4j.ogm.session.SessionFactory;
 import org.springframework.context.annotation.Bean;

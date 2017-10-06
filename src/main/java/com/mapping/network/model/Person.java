@@ -1,7 +1,8 @@
-package com.mapping.network.repository;
+package com.mapping.network.model;
 
 import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
+import org.springframework.context.annotation.Bean;
 
 import lombok.Getter;
 import lombok.Setter;
