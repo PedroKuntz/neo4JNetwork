@@ -4,6 +4,8 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 
 @NodeEntity
+@lombok.Setter
+@lombok.Getter
 public class Site {
 
 	@GraphId

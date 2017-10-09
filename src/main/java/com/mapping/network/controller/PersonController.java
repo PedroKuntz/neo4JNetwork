@@ -1,5 +1,7 @@
 package com.mapping.network.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -19,5 +21,11 @@ public class PersonController {
 	public Iterable<Person> getPerson(){
 		return service.getPerson();
 	}	
+	
+	@GetMapping("/relationship")
+	@ResponseBody
+	public List<Person> getRelationship() {
+		return service.getRelationship();
+	}
 	
 }
